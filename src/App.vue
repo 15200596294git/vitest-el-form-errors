@@ -1,24 +1,23 @@
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { ref, reactive } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
 const form = ref();
 const model = reactive({
-  name: '',
+  name: "",
 });
 const rules = {
-  name: [{ required: true, message: '请输入用户名' }],
+  name: [{ required: true, message: "请输入用户名" }],
 };
 const submit = () => {
   form.value?.validate((isValid) => {
-    console.log('isValid');
+    console.log("isValid");
   });
 };
 </script>
 
 <template>
   <div>
-    <p>{{ rules }}</p>
     <el-form ref="form" :model="model" :rules="rules">
       <el-form-item prop="name">
         <el-input v-model="model.name" />
